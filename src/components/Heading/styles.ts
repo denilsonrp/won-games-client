@@ -5,7 +5,7 @@ import { HeadingProps } from '.'
 
 const wrapperModifiers = {
   lineLeft: (theme: DefaultTheme) => css`
-    border-left: 0.7rem solid ${theme.colors.secondary};
+    border-left: 0.5rem solid ${theme.colors.secondary};
     padding-left: ${theme.spacings.xxsmall};
   `,
   lineBottom: (theme: DefaultTheme) => css`
@@ -13,8 +13,8 @@ const wrapperModifiers = {
     position: relative;
 
     &::after {
-      border: 0.4rem solid ${theme.colors.primary};
-      bottom: -1rem;
+      border-bottom: 0.5rem solid ${theme.colors.primary};
+      bottom: -0.8rem;
       content: '';
       left: 0;
       position: absolute;
