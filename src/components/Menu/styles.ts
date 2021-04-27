@@ -1,6 +1,10 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 
+type MenuFullProps = {
+  isOpen: boolean
+}
+
 export const IconWrapper = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.white};
@@ -15,6 +19,12 @@ export const LogoWrapper = styled.div`
     left: 50%;
     position: absolute;
     transform: translateX(-50%);
+  `}
+`
+
+export const MenuFull = styled.nav<MenuFullProps>`
+  ${({ isOpen }) => css`
+    opacity: ${isOpen ? 1 : 0};
   `}
 `
 
