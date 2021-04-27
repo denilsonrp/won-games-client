@@ -5,6 +5,14 @@ type MenuFullProps = {
   isOpen: boolean
 }
 
+export const CreateAccount = styled.a`
+  ${({ theme }) => css`
+    border-bottom: 0.2rem solid ${theme.colors.primary};
+    color: ${theme.colors.primary};
+    text-decoration: none;
+  `}
+`
+
 export const IconWrapper = styled.div`
   ${({ theme }) => css`
     color: ${theme.colors.white};
@@ -23,10 +31,81 @@ export const LogoWrapper = styled.div`
 `
 
 export const MenuFull = styled.nav<MenuFullProps>`
-  ${({ isOpen }) => css`
+  ${({ theme, isOpen }) => css`
+    background-color: ${theme.colors.white};
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+    left: 0;
     opacity: ${isOpen ? 1 : 0};
+    overflow: hidden;
+    pointer-events: ${isOpen ? 'all' : 'none'};
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    > svg {
+      cursor: pointer;
+      height: 2.4rem;
+      margin: ${theme.spacings.xsmall};
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 2.4rem;
+    }
+
+    ${MenuNav} {
+      align-items: center;
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    ${MenuLink} {
+      color: ${theme.colors.black};
+      font-size: ${theme.font.sizes.xlarge};
+      font-weight: ${theme.font.bold};
+      margin-bottom: ${theme.spacings.small};
+    }
   `}
 `
+
+export const MenuLink = styled.a`
+  ${({ theme }) => css`
+    font-size: ${theme.font.sizes.medium};
+    margin: 0.3rem ${theme.spacings.small} 0;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+
+    &:hover {
+      &::after {
+        animation: hoverAnimation 0.2s forwards;
+        background-color: ${theme.colors.primary};
+        content: '';
+        display: block;
+        height: 0.3rem;
+        position: absolute;
+      }
+
+      @keyframes hoverAnimation {
+        from {
+          left: 50%;
+          width: 0;
+        }
+        to {
+          left: 0;
+          width: 100%;
+        }
+      }
+    }
+  `}
+`
+
+export const MenuNav = styled.div``
 
 export const MenuGroup = styled.div`
   ${({ theme }) => css`
@@ -34,6 +113,21 @@ export const MenuGroup = styled.div`
     flex-grow: 1;
     gap: ${theme.spacings.xsmall};
     justify-content: flex-end;
+  `}
+`
+
+export const RegisterBox = styled.div`
+  ${({ theme }) => css`
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 0 ${theme.spacings.xlarge} ${theme.spacings.xlarge};
+
+    > span {
+      display: block;
+      font-size: ${theme.font.sizes.xsmall};
+      margin: ${theme.spacings.xxsmall} 0;
+    }
   `}
 `
 
