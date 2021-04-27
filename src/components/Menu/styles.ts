@@ -45,6 +45,7 @@ export const MenuFull = styled.nav<MenuFullProps>`
     position: absolute;
     right: 0;
     top: 0;
+    transition: opacity 0.3s ease-in-out;
 
     > svg {
       cursor: pointer;
@@ -69,6 +70,13 @@ export const MenuFull = styled.nav<MenuFullProps>`
       font-size: ${theme.font.sizes.xlarge};
       font-weight: ${theme.font.bold};
       margin-bottom: ${theme.spacings.small};
+      transform: ${isOpen ? 'translateY(0)' : 'translateY(3rem)'};
+      transition: transform 0.3s ease-in-out;
+    }
+
+    ${RegisterBox} {
+      transform: ${isOpen ? 'translateY(0)' : 'translateY(3rem)'};
+      transition: transform 0.3s ease-in-out;
     }
   `}
 `
