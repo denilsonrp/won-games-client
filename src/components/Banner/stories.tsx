@@ -12,6 +12,9 @@ export default {
       label: 'Buy now',
       link: '/games/defy-death'
     }
+  },
+  parameters: {
+    layout: 'fullscreen'
   }
 } as Meta
 
