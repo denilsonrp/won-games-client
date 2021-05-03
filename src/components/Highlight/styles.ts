@@ -6,6 +6,7 @@ type WrapperProps = Pick<HighlightProps, 'backgroundImage'>
 
 export const Content = styled.div`
   ${({ theme }) => css`
+    grid-area: content;
     padding: ${theme.spacings.xsmall};
     text-align: right;
     z-index: ${theme.layers.base};
@@ -13,6 +14,20 @@ export const Content = styled.div`
     ${media.greaterThan('medium')`
       align-self: end;
       padding: ${theme.spacings.large};
+    `}
+  `}
+`
+
+export const FloatImage = styled.img`
+  ${({ theme }) => css`
+    align-self: end;
+    grid-area: floatImage;
+    max-height: 23rem;
+    max-width: 100%;
+    z-index: ${theme.layers.base};
+
+    ${media.greaterThan('medium')`
+      max-height: 32rem;
     `}
   `}
 `
@@ -25,7 +40,7 @@ export const Subtitle = styled.h3`
     margin-bottom: ${theme.spacings.medium};
 
     ${media.greaterThan('medium')`
-    font-size: ${theme.font.sizes.large};
+      font-size: ${theme.font.sizes.large};
     `}
   `}
 `
@@ -48,6 +63,8 @@ export const Wrapper = styled.section<WrapperProps>`
     background-position: center;
     background-size: cover;
     display: grid;
+    grid-template-areas: 'floatImage content';
+    grid-template-columns: 1.3fr 2fr;
     height: 23rem;
     position: relative;
 
