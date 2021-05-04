@@ -12,7 +12,7 @@ const props = {
 
 describe('<GameCard />', () => {
   it('should render correctly', () => {
-    renderWithTheme(<GameCard {...props} />)
+    const { container } = renderWithTheme(<GameCard {...props} />)
 
     expect(
       screen.getByRole('heading', { name: /Population Zero/i })
@@ -26,6 +26,6 @@ describe('<GameCard />', () => {
       screen.getByRole('img', { name: /Population Zero/i })
     ).toBeInTheDocument()
 
-    //expect(container.firstChild).toMatchSnapshot()
+    expect(container.firstChild).toMatchSnapshot()
   })
 })
