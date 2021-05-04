@@ -4,6 +4,7 @@ import {
   FavoriteBorder
 } from '@styled-icons/material-outlined'
 import Button from 'components/Button'
+import Ribbon, { RibbonColors, RibbonSizes } from 'components/Ribbon'
 import * as S from './styles'
 
 export type GameCardProps = {
@@ -14,6 +15,9 @@ export type GameCardProps = {
   title: string
   favorite?: boolean
   onFav?: () => void
+  ribbon?: React.ReactNode
+  ribbonColor?: RibbonColors
+  ribbonSize?: RibbonSizes
 }
 
 const GameCard = ({
@@ -23,9 +27,18 @@ const GameCard = ({
   promotionalPrice,
   title,
   favorite = false,
-  onFav
+  onFav,
+  ribbon,
+  ribbonColor,
+  ribbonSize
 }: GameCardProps) => (
   <S.Wrapper>
+    {!!ribbon && (
+      <Ribbon color={ribbonColor} size={ribbonSize}>
+        {ribbon}
+      </Ribbon>
+    )}
+
     <S.ImageBox>
       <img src={image} alt={title} />
     </S.ImageBox>
