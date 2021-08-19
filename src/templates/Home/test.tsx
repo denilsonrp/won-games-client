@@ -10,14 +10,14 @@ import Home from '.'
 
 const props = {
   banners: bannersMock,
-  newGames: gamesMock,
+  newGames: [gamesMock[0]],
   mostPopularHighlight: highlightMock,
-  mostPopularGames: gamesMock,
+  mostPopularGames: [gamesMock[0]],
   upcomingHighlight: highlightMock,
-  upcomingGames: gamesMock,
-  upcomingMoreGames: gamesMock,
+  upcomingGames: [gamesMock[0]],
+  upcomingMoreGames: [gamesMock[0]],
   freeHighlight: highlightMock,
-  freeGames: gamesMock
+  freeGames: [gamesMock[0]]
 }
 
 describe('<Home />', () => {
